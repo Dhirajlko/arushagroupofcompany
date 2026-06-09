@@ -1,66 +1,105 @@
 <!DOCTYPE html>
-<html lang="en">
+<html <?php language_attributes(); ?>>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Arusha Group of Company</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="assets/css/main.css">
+  <meta charset="<?php bloginfo('charset'); ?>">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Arusha Group of Company — Leading FMCG enterprise in Lucknow. Manufacturing and distributing quality consumer goods across India.">
+  <?php wp_head(); ?>
 </head>
-<body>
+<body <?php body_class(); ?>>
+<?php wp_body_open(); ?>
 
-<header class="nav-wrap">
-  <div class="nav-inner">
-    <div class="brand">
-      <a class="logo" href="/">AG</a>
-      <a href="/" class="title">Arusha Group of Company</a>
+<!-- TOP BAR -->
+<div class="site-topbar">
+  <div class="container">
+    <span>📍 Vijay Nagar, Sector-B, Nilmatha Cantt, Lucknow 226002</span>
+    <div class="topbar-right">
+      <span>Mon–Sat: 9:30AM – 6PM</span>
+      <a href="tel:+917607774444">📞 +91 76077 74444</a>
+      <a href="mailto:arushagroupofcopanyfmcg@gmail.com">✉ arushagroupofcopanyfmcg@gmail.com</a>
     </div>
+      <a href="mailto:arushagroupofcopanyfmcg@gmail.com">✉ arushagroupofcopanyfmcg@gmail.com</a>
+    </div>
+  </div>
+</div>
 
-    <nav class="primary" aria-label="Primary">
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/about.php">About Us</a></li>
-        <li><a href="/products.php">Products</a></li>
-        <li><a href="/registrations.php">Registrations</a></li>
-        <li><a href="/pricing.php">Pricing</a></li>
-        <li><a href="/blog.php">Blog</a></li>
-      </ul>
-    </nav>
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container">
+    <div class="nav-inner">
 
-    <div class="nav-actions">
-      <a class="cta-phone" href="tel:+917991774777">
-        <span class="dot"></span> +91&nbsp;79917&nbsp;74777
+      <!-- Brand -->
+      <a class="site-brand" href="<?php echo esc_url(home_url('/')); ?>">
+        <div class="brand-logo">AG</div>
+        <div class="brand-info">
+          <span class="brand-name">Arusha Group of Company</span>
+          <span class="brand-tagline">FMCG Division — Lucknow</span>
+        </div>
       </a>
-      <a class="btn-outline" href="/contact.php">Contact Us</a>
-      <button class="hamburger" id="navToggle" aria-label="Menu">☰</button>
+
+      <!-- Primary Nav -->
+      <nav class="primary-nav" aria-label="Primary Navigation">
+        <?php wp_nav_menu([
+          'theme_location' => 'primary',
+          'container'      => false,
+          'menu_class'     => '',
+          'items_wrap'     => '<ul>%3$s</ul>',
+          'fallback_cb'    => function() {
+            echo '<ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/about">About Us</a></li>
+              <li><a href="/PRODUCTS">Products</a></li>
+              <li><a href="/registrations">Registrations</a></li>
+              <li><a href="/pricing-2">Pricing</a></li>
+              <li><a href="/blog">Blog</a></li>
+            </ul>';
+          }
+        ]); ?>
+      </nav>
+
+      <!-- Actions -->
+      <div class="nav-actions">
+        <a class="btn-phone" href="tel:+917991774777">📞 +91 79917 74777</a>
+        <a class="btn-contact" href="/contact">Contact Us →</a>
+        <button class="hamburger" id="navToggle" aria-label="Open menu" aria-expanded="false">☰</button>
+      </div>
+
     </div>
   </div>
 </header>
 
-<div id="mobileDrawer" class="drawer">
-  <div class="drawer-header">
-    <div class="drawer-brand">
-      <div class="logo-small">AG</div>
-      <div>Arusha Group</div>
-    </div>
-    <button id="drawerClose" class="drawer-close">✕</button>
-  </div>
-  <nav>
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/about.php">About Us</a></li>
-      <li><a href="/products.php">Products</a></li>
-      <li><a href="/registrations.php">Registrations</a></li>
-      <li><a href="/pricing.php">Pricing</a></li>
-      <li><a href="/blog.php">Blog</a></li>
-      <li><a href="/contact.php">Contact</a></li>
-    </ul>
-  </nav>
-  <div class="drawer-actions">
-    <a href="tel:+917991774777" class="drawer-phone">📞 Call Now</a>
-    <a href="/contact.php" class="drawer-contact">Get Help</a>
-  </div>
-</div>
+<!-- MOBILE DRAWER -->
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-label="Navigation">
 
-<main>
+  <div class="drawer-header">
+    <a href="<?php echo esc_url(home_url('/')); ?>" style="display:flex;align-items:center;gap:12px;text-decoration:none">
+      <div class="brand-logo" style="width:44px;height:44px;font-size:17px">AG</div>
+      <div>
+        <div style="font-weight:800;font-size:14px;color:var(--text)">Arusha Group of Company</div>
+        <div style="font-size:11px;color:var(--orange);font-weight:600;text-transform:uppercase;letter-spacing:0.08em">FMCG Division</div>
+      </div>
+    </a>
+    <button class="drawer-close" id="drawerClose" aria-label="Close menu">✕</button>
+  </div>
+
+  <nav class="drawer-nav">
+    <a href="/">🏠 Home</a>
+    <a href="/about">🏢 About Us</a>
+    <a href="/PRODUCTS">📦 Products</a>
+    <a href="/registrations">📋 Registrations</a>
+    <a href="/pricing-2">💰 Pricing</a>
+    <a href="/blog">📝 Blog</a>
+    <a href="/contact">✉ Contact Us</a>
+  </nav>
+
+  <div class="drawer-footer">
+    <a class="btn-contact drawer-call" href="tel:+917991774777" style="display:flex;align-items:center;justify-content:center;gap:8px;padding:13px;border-radius:10px;background:linear-gradient(135deg,var(--orange),var(--orange-light));color:#fff;font-weight:700;font-size:15px">
+      📞 +91 79917 74777
+    </a>
+    <a href="/contact" style="display:flex;align-items:center;justify-content:center;gap:8px;padding:13px;border-radius:10px;border:1.5px solid var(--border);color:var(--text);font-weight:600;font-size:15px">
+      ✉ Contact Us
+    </a>
+  </div>
+
+</div>

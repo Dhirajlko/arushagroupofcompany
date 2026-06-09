@@ -1,57 +1,83 @@
-</main>
-
+<!-- FOOTER -->
 <footer class="site-footer">
-  <div class="footer-inner">
+  <div class="container">
     <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="logo">AG</div>
-        <div class="brand-title">Arusha Group of Company (FMCG Division)</div>
-        <p class="brand-desc">Leading FMCG enterprise manufacturing & distributing quality consumer goods across India.</p>
-        <div class="contact">
-          <a href="tel:+917991774777">📞 +91 79917 74777</a>
-          <a href="mailto:info@arushagroupofcompany.in">✉️ info@arushagroupofcompany.in</a>
+
+      <!-- Brand Col -->
+      <div class="footer-col footer-brand">
+        <div class="brand-logo" style="width:54px;height:54px;font-size:22px;margin-bottom:16px;background:linear-gradient(135deg,var(--orange),var(--orange-light));display:flex;align-items:center;justify-content:center;border-radius:10px;color:#fff;font-weight:900">AG</div>
+        <h4 style="color:#fff;font-size:16px;font-weight:800;margin-bottom:10px">Arusha Group of Company</h4>
+        <p style="font-size:14px;line-height:1.75;max-width:280px">
+          A leading FMCG enterprise engaged in the manufacturing, distribution, and marketing of high-quality consumer goods across India. Our focus is on trust, quality, and customer satisfaction.
+        </p>
+        <div style="margin-top:18px;display:flex;flex-direction:column;gap:8px">
+          <a href="tel:+917991774777" style="color:var(--orange-light);font-weight:700;font-size:16px">📞 +91 79917 74777</a>
+          <a href="tel:+917607774444" style="color:var(--orange-light);font-weight:700;font-size:16px">📞 +91 76077 74444</a>
+          <a href="mailto:arushagroupofcopanyfmcg@gmail.com" style="color:rgba(255,255,255,0.65);font-size:14px">✉️ arushagroupofcopanyfmcg@gmail.com</a>
         </div>
-        <div class="social">
-          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <div class="social-links" style="margin-top:20px">
+          <a class="social-btn" href="#" aria-label="Facebook">f</a>
+          <a class="social-btn" href="#" aria-label="Instagram">◎</a>
+          <a class="social-btn" href="#" aria-label="LinkedIn">in</a>
+          <a class="social-btn" href="#" aria-label="YouTube">▶</a>
         </div>
       </div>
+
+      <!-- Product Categories -->
       <div class="footer-col">
-        <h3>Product Categories</h3>
+        <h4>Product Categories</h4>
         <ul>
-          <li><a href="#">Food & Beverages</a></li>
-          <li><a href="#">Household Essentials</a></li>
-          <li><a href="#">Personal Care</a></li>
+          <li><a href="/PRODUCTS">→ Food &amp; Beverages</a></li>
+          <li><a href="/PRODUCTS">→ Household Essentials</a></li>
+          <li><a href="/PRODUCTS">→ Personal Care</a></li>
+          <li><a href="/PRODUCTS">→ Health &amp; Wellness</a></li>
         </ul>
       </div>
+
+      <!-- Distribution Network -->
       <div class="footer-col">
-        <h3>Distribution</h3>
+        <h4>Distribution Network</h4>
         <ul>
-          <li><a href="#">Wholesale Supply</a></li>
-          <li><a href="#">Retail Partnerships</a></li>
-          <li><a href="#">Become a Distributor</a></li>
+          <li><a href="/contact">→ Wholesale Supply</a></li>
+          <li><a href="/contact">→ Retail Partnerships</a></li>
+          <li><a href="/contact">→ Dealership Inquiry</a></li>
+          <li><a href="/contact">→ Become a Distributor</a></li>
         </ul>
       </div>
-      <div class="footer-col newsletter-col">
-        <h3>Stay Connected</h3>
-        <form id="footer-newsletter">
-          <input type="email" placeholder="Your email" required>
-          <button type="submit">Subscribe</button>
-        </form>
-        <div id="newsletter-msg" class="newsletter-msg"></div>
+
+      <!-- Quick Links -->
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="/">→ Home</a></li>
+          <li><a href="/about">→ About Us</a></li>
+          <li><a href="/registrations">→ Registrations</a></li>
+          <li><a href="/pricing">→ Pricing</a></li>
+          <li><a href="/blog">→ Blog</a></li>
+          <li><a href="/store-locator">→ Find Our Store</a></li>
+        </ul>
+        <div style="margin-top:20px;padding:16px;background:rgba(255,255,255,0.05);border-radius:10px;border:1px solid rgba(255,255,255,0.08)">
+          <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.08em">Nearest Store</div>
+          <div style="color:rgba(255,255,255,0.8);font-size:13px;line-height:1.6">📍 Sector B, Vijay Nagar,<br>Vijay Nagar, Sector-B, Nilmatha Cantt, Lko 226002</div>
+        </div>
       </div>
+
     </div>
-    <div class="footer-bottom">
-      <small>© <span id="copyright-year"></span> Arusha Group of Company. All rights reserved.</small>
-      <button id="backToTop" class="back-button">↑ Back to Top</button>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="footer-bottom">
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;width:100%">
+      <span>© <?php echo date('Y'); ?> Arusha Group of Company — FMCG Division. All rights reserved.</span>
+      <span>
+        <a href="/privacy">Privacy Policy</a> &nbsp;·&nbsp;
+        <a href="/terms">Terms &amp; Conditions</a>
+      </span>
+      <span style="color:rgba(255,255,255,0.35);font-size:12px">@ by Leo Computers under Bina Enterprises (Since 2014)</span>
     </div>
-    <div class="footer-signature">@ by Leo Computers under Bina Enterprises (Since 2014)</div>
   </div>
 </footer>
 
-<script src="assets/js/main.js"></script>
-<script src="assets/js/gallery.js"></script>
-<script src="assets/js/registration.js"></script>
+<?php wp_footer(); ?>
 </body>
 </html>

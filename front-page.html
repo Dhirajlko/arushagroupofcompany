@@ -1,0 +1,504 @@
+<?php get_header(); ?>
+
+<!-- ══ HERO ══════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge fade-up">✦ FMCG Division — Lucknow, India</div>
+      <h1 class="fade-up-2">Visit Our Stores &<br><span>Try Our Products</span></h1>
+      <p class="hero-desc fade-up-3">
+        Fresh, reliable consumer goods — from staples to personal care. We manufacture and distribute quality products tailored for retail and wholesale partners. Drop by our nearest store or request a product catalogue today.
+      </p>
+      <div class="hero-btns fade-up-3">
+        <a class="btn-contact" href="tel:+917991774777">📞 79917 74777</a>
+        <a class="btn-ghost" href="/product-catalog">📦 Product Catalog</a>
+      </div>
+      <div style="margin-top:28px;display:flex;align-items:center;gap:10px;color:rgba(255,255,255,0.75);font-size:15px">
+        <span style="font-size:20px">📍</span>
+        <span>Nearest Store: <strong style="color:#fff">Lucknow</strong> — Sector B, Vijay Nagar, Vijay Nagar, Sector-B, Nilmatha Cantt, Lko 226002</span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="hero-card-icon">🛒</div>
+        <div>
+          <h3>Pan-India Distribution</h3>
+          <p>Retail &amp; wholesale supply across all major states</p>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-icon">🏭</div>
+        <div>
+          <h3>In-House Manufacturing</h3>
+          <p>Quality controlled production at our Lucknow facility</p>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-icon">✅</div>
+        <div>
+          <h3>FSSAI Certified</h3>
+          <p>All products comply with Indian food safety standards</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CIC GALLERY STYLES ══════════════════════════════════ -->
+<style>
+.cic-section {
+  padding: 72px 0;
+  background: #f8f7f4;
+  border-top: 1px solid #e8e4dc;
+  border-bottom: 1px solid #e8e4dc;
+}
+.cic-label {
+  display: inline-block;
+  background: #1a1a1a;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+.cic-title {
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  font-weight: 900;
+  color: #111;
+  margin: 0 0 8px 0;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+.cic-subtitle {
+  color: #666;
+  font-size: 15px;
+  margin: 0 0 40px 0;
+  line-height: 1.6;
+}
+.cic-tabs {
+  display: flex;
+  gap: 0;
+  margin-bottom: 32px;
+  border-bottom: 2px solid #e0ddd6;
+}
+.cic-tab {
+  padding: 11px 28px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #888;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.cic-tab.active { color: #111; border-bottom-color: #d4500a; }
+.cic-tab:hover { color: #333; }
+.cic-video-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+@media (max-width: 640px) { .cic-video-grid { grid-template-columns: 1fr; } }
+.cic-video-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #e8e4dc;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+.cic-video-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.12); transform: translateY(-3px); }
+.cic-video-card video {
+  width: 100%;
+  display: block;
+  height: 210px;
+  object-fit: cover;
+  background: #111;
+}
+.cic-video-label {
+  padding: 12px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #222;
+  border-top: 1px solid #f0ede6;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.cic-video-dot {
+  width: 8px; height: 8px;
+  background: #d4500a;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.cic-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+@media (max-width: 900px) { .cic-photo-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 600px) { .cic-photo-grid { grid-template-columns: repeat(2, 1fr); } }
+.cic-photo-card {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e8e4dc;
+  background: #fff;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+.cic-photo-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.13); transform: translateY(-3px); }
+.cic-photo-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.cic-photo-card:hover img { transform: scale(1.06); }
+.cic-photo-caption {
+  padding: 9px 11px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #555;
+  border-top: 1px solid #f0ede6;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cic-panel { display: none; }
+.cic-panel.active { display: block; }
+.cic-lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(10,10,10,0.93);
+  z-index: 99999;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  backdrop-filter: blur(6px);
+}
+.cic-lightbox.open { display: flex; }
+.cic-lightbox img {
+  max-width: 88vw;
+  max-height: 86vh;
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  object-fit: contain;
+}
+.cic-lb-close {
+  position: absolute;
+  top: 22px; right: 28px;
+  color: #fff;
+  font-size: 32px;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+  background: none;
+  border: none;
+  font-weight: 300;
+  line-height: 1;
+}
+.cic-lb-close:hover { opacity: 1; }
+.cic-lb-caption {
+  position: absolute;
+  bottom: 26px; left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255,255,255,0.72);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+  background: rgba(0,0,0,0.4);
+  padding: 6px 16px;
+  border-radius: 20px;
+}
+</style>
+
+<!-- ══ CIC AYODHYA GALLERY ════════════════════════════════ -->
+<section class="cic-section">
+  <div class="container">
+    <span class="cic-label">CIC Ayodhya — February 2026</span>
+    <h2 class="cic-title">Inauguration Highlights</h2>
+    <p class="cic-subtitle">Food Processing &amp; Manufacturing Unit — Khad Prasanskaran Vibhag, Uttar Pradesh</p>
+
+    <div class="cic-tabs">
+      <button class="cic-tab active" onclick="cicTab(this,'videos')">🎬 &nbsp;Videos &nbsp;<span style="font-weight:400;color:#aaa;font-size:12px">(4)</span></button>
+      <button class="cic-tab" onclick="cicTab(this,'photos')">📸 &nbsp;Photos &nbsp;<span style="font-weight:400;color:#aaa;font-size:12px">(10)</span></button>
+    </div>
+
+    <!-- VIDEOS -->
+    <div class="cic-panel active" id="cic-videos">
+      <div class="cic-video-grid">
+        <div class="cic-video-card">
+          <video controls playsinline muted preload="metadata">
+            <source src="https://arushagroupofcompany.in/wp-content/uploads/2026/03/food-processing-machine-demo-cic-ayodhya-2026.mp4" type="video/mp4">
+          </video>
+          <div class="cic-video-label"><span class="cic-video-dot"></span>Food Processing Machine Demo</div>
+        </div>
+        <div class="cic-video-card">
+          <video controls playsinline muted preload="metadata">
+            <source src="https://arushagroupofcompany.in/wp-content/uploads/2026/03/puff-maker-machine-output-cic-ayodhya-2026.mp4" type="video/mp4">
+          </video>
+          <div class="cic-video-label"><span class="cic-video-dot"></span>Puff Maker Machine Output</div>
+        </div>
+        <div class="cic-video-card">
+          <video controls playsinline muted preload="metadata">
+            <source src="https://arushagroupofcompany.in/wp-content/uploads/2026/03/roaster-machine-demo-cic-ayodhya-2026.mp4" type="video/mp4">
+          </video>
+          <div class="cic-video-label"><span class="cic-video-dot"></span>Roaster Machine Demo</div>
+        </div>
+        <div class="cic-video-card">
+          <video controls playsinline muted preload="metadata">
+            <source src="https://arushagroupofcompany.in/wp-content/uploads/2026/03/puff-snacks-production-line-cic-ayodhya-2026.mp4" type="video/mp4">
+          </video>
+          <div class="cic-video-label"><span class="cic-video-dot"></span>Puff Snacks Production Line</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHOTOS -->
+    <div class="cic-panel" id="cic-photos">
+      <div class="cic-photo-grid">
+        <div class="cic-photo-card" onclick="cicLight(this)">
+          <img src="https://arushagroupofcompany.in/wp-content/uploads/2026/03/ribbon-cutting-cic-ayodhya-inauguration-2026.jpeg" alt="Ribbon Cutting">
+          <div class="cic-photo-caption">Ribbon Cutting Ceremony</div>
+        </div>
+        <div class="cic-photo-card" onclick="cicLight(this)">
+          <img src="https://arushagroupofcompany.in/wp-content/uploads/2026/03/certificate-distribution-cic-ayodhya-inauguration-2026.jpeg" alt="Certificate Distribution">
+          <div class="cic-photo-caption">Certificate Distribution</div>
+        </div>
+        <div class="cic-photo-card" onclick="cicLight(this)">
+          <img src="https://arushagroupofcompany.in/wp-content/uploads/2026/03/team-photo-cic-ayodhya-inauguration-2026.jpeg" alt="Team Photo">
+          <div class="cic-photo-caption">Team Group Photo</div>
+        </div>
+        <div class="cic-photo-card" onclick="cicLight(this)">
+          <img src="https://arushagroupofcompany.in/wp-content/uploads/2026/03/inaugural-dais-cic-ayodhya-khad-prasanskaran-vibhag-up-2026.jpeg" alt="Inaugural Dais">
+          <div class="cic-photo-caption">Inaugural Dais — UP Govt</div>
+        </div>
+        <div class="cic-photo-card" onclick="cicLight(this)">
+          <img src="https://arushagroupofcompany.in/wp-content/uploads/2026/03/roaster-machine-cic-ayodhya-2026.jpeg" alt="Roaster Machine">
+          <div class="cic-photo-caption">Roaster Machine Unit</div>
+        </div>
+        <div class="cic-photo-card" onclick="cicLight(this)">
+          <img src="https://arushagroupofcompany.in/wp-content/uploads/2026/03/puff-maker-grain-maker-cic-ayodhya-2026.jpeg" alt="Puff Grain Maker">
+          <div class="cic-photo-caption">Puff / Grain Maker</div>
+        </div>
+        <div class="cic-photo-card" onclick="cicLight(this)">
+          <img src="https://arushagroupofcompany.in/wp-content/uploads/2026/03/inaugural-puja-ceremony-cic-ayodhya-2026.jpeg" alt="Puja Ceremony">
+          <div class="cic-photo-caption">Inaugural Puja Ceremony</div>
+        </div>
+        <div class="cic-photo-card" onclick="cicLight(this)">
+          <img src="https://arushagroupofcompany.in/wp-content/uploads/2026/03/machine-inspection-by-officials-cic-ayodhya-2026.jpeg" alt="Machine Inspection">
+          <div class="cic-photo-caption">Inspection by Officials</div>
+        </div>
+        <div class="cic-photo-card" onclick="cicLight(this)">
+          <img src="https://arushagroupofcompany.in/wp-content/uploads/2026/03/extruder-motor-unit-cic-ayodhya-2026.jpeg" alt="Extruder Motor Unit">
+          <div class="cic-photo-caption">Extruder Motor Unit</div>
+        </div>
+        <div class="cic-photo-card" onclick="cicLight(this)">
+          <img src="https://arushagroupofcompany.in/wp-content/uploads/2026/03/team-at-cic-ayodhya-inauguration-february-2026.jpeg" alt="Team Feb 2026">
+          <div class="cic-photo-caption">Team — February 2026</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="cic-lightbox" id="cicLightbox" onclick="cicCloseLb()">
+  <button class="cic-lb-close" onclick="cicCloseLb()">✕</button>
+  <img id="cicLbImg" src="" alt="">
+  <div class="cic-lb-caption" id="cicLbCap"></div>
+</div>
+
+<script>
+function cicTab(btn,panel){
+  document.querySelectorAll('.cic-tab').forEach(function(t){t.classList.remove('active');});
+  document.querySelectorAll('.cic-panel').forEach(function(p){p.classList.remove('active');});
+  btn.classList.add('active');
+  document.getElementById('cic-'+panel).classList.add('active');
+}
+function cicLight(card){
+  document.getElementById('cicLbImg').src = card.querySelector('img').src;
+  document.getElementById('cicLbCap').textContent = card.querySelector('.cic-photo-caption').textContent;
+  document.getElementById('cicLightbox').classList.add('open');
+}
+function cicCloseLb(){ document.getElementById('cicLightbox').classList.remove('open'); }
+document.addEventListener('keydown',function(e){ if(e.key==='Escape') cicCloseLb(); });
+</script>
+
+<!-- ══ STATS ══════════════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="stats-row">
+      <div class="stat-box"><div class="stat-number">500+</div><div class="stat-label">Products</div></div>
+      <div class="stat-box"><div class="stat-number">10+</div><div class="stat-label">Years Experience</div></div>
+      <div class="stat-box"><div class="stat-number">1000+</div><div class="stat-label">Retail Partners</div></div>
+      <div class="stat-box"><div class="stat-number">20+</div><div class="stat-label">States Covered</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ABOUT SNIPPET ══════════════════════════════════════ -->
+<section class="section section-alt">
+  <div class="container">
+    <span class="section-label">Who We Are</span>
+    <h2 class="section-title">Arusha Group of Company</h2>
+    <p class="section-sub">A leading FMCG enterprise engaged in the manufacturing, distribution, and marketing of high-quality consumer goods across India. Our focus is on trust, quality, and customer satisfaction.</p>
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-icon">🏆</div>
+        <h3>Our Mission</h3>
+        <p>To provide affordable, high-quality FMCG products that improve everyday life for every Indian household — from Lucknow to every corner of India.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🌿</div>
+        <h3>Quality First</h3>
+        <p>Every product undergoes rigorous quality checks. FSSAI certified, GST compliant, and built to the highest consumer safety standards.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🤝</div>
+        <h3>Trusted Partners</h3>
+        <p>We work with 1000+ retail and wholesale partners. Reliable supply chains, competitive margins, and on-time delivery — always.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PRODUCTS PREVIEW ═══════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <span class="section-label">Product Categories</span>
+    <h2 class="section-title">What We Make & Distribute</h2>
+    <p class="section-sub">From kitchen staples to personal care — a wide range of quality products for every home.</p>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-thumb">🌾</div>
+        <div class="product-info">
+          <h3>Food &amp; Beverages</h3>
+          <p>Atta, rice, pulses, spices, snacks, juices and everyday kitchen essentials.</p>
+          <span class="product-tag">FSSAI Certified</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-thumb">🏠</div>
+        <div class="product-info">
+          <h3>Household Essentials</h3>
+          <p>Cleaning agents, detergents, floor cleaners and complete home care range.</p>
+          <span class="product-tag">Best Seller</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-thumb">🧴</div>
+        <div class="product-info">
+          <h3>Personal Care</h3>
+          <p>Soaps, shampoos, creams, and daily hygiene essentials for the whole family.</p>
+          <span class="product-tag">Premium Quality</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-thumb">💊</div>
+        <div class="product-info">
+          <h3>Health &amp; Wellness</h3>
+          <p>Nutritional supplements, health drinks, and immunity boosters for active living.</p>
+          <span class="product-tag">New Range</span>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:36px">
+      <a class="btn-contact" href="/PRODUCTS">View All Products →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA BANNER ═════════════════════════════════════════ -->
+<section style="background:linear-gradient(135deg,var(--orange),var(--orange-dark));padding:64px 0">
+  <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center">
+    <div>
+      <h2 style="color:#fff;font-size:clamp(1.8rem,3vw,2.4rem);font-weight:900;margin-bottom:14px;line-height:1.2">Become a Distributor<br>or Retail Partner</h2>
+      <p style="color:rgba(255,255,255,0.88);font-size:17px;line-height:1.75;margin-bottom:28px">Join our growing network. Get competitive margins, marketing support &amp; reliable supply chain across India.</p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap">
+        <a class="btn-ghost" href="/contact" style="border-color:rgba(255,255,255,0.4);color:#fff;font-size:16px;padding:14px 28px">Partner With Us →</a>
+        <a href="/store-locator" style="display:inline-flex;align-items:center;gap:8px;padding:14px 24px;background:rgba(255,255,255,0.15);border-radius:9px;color:#fff;font-weight:700;font-size:15px;border:1px solid rgba(255,255,255,0.25)">📍 Find Store</a>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div style="background:rgba(255,255,255,0.12);border-radius:14px;padding:20px 24px;display:flex;align-items:center;gap:16px;border:1px solid rgba(255,255,255,0.2)">
+        <span style="font-size:32px">📞</span>
+        <div>
+          <div style="color:rgba(255,255,255,0.7);font-size:13px;font-weight:600;margin-bottom:3px">CALL US</div>
+          <a href="tel:+917991774777" style="color:#fff;font-size:20px;font-weight:800">+91 79917 74777</a>
+        </div>
+      </div>
+      <div style="background:rgba(255,255,255,0.12);border-radius:14px;padding:20px 24px;display:flex;align-items:center;gap:16px;border:1px solid rgba(255,255,255,0.2)">
+        <span style="font-size:32px">✉️</span>
+        <div>
+          <div style="color:rgba(255,255,255,0.7);font-size:13px;font-weight:600;margin-bottom:3px">EMAIL US</div>
+          <a href="mailto:arushagroupofcopanyfmcg@gmail.com" style="color:#fff;font-size:15px;font-weight:700">arushagroupofcopanyfmcg@gmail.com</a>
+        </div>
+      </div>
+      <div style="background:rgba(255,255,255,0.12);border-radius:14px;padding:20px 24px;display:flex;align-items:center;gap:16px;border:1px solid rgba(255,255,255,0.2)">
+        <span style="font-size:32px">📍</span>
+        <div>
+          <div style="color:rgba(255,255,255,0.7);font-size:13px;font-weight:600;margin-bottom:3px">VISIT US</div>
+          <div style="color:#fff;font-size:14px;font-weight:600">Sector B, Vijay Nagar, Nilmatha,<br>Lucknow, Uttar Pradesh</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ LATEST BLOG ════════════════════════════════════════ -->
+<?php
+$blog_posts = new WP_Query(['post_type' => 'post', 'posts_per_page' => 3]);
+if ( $blog_posts->have_posts() ) : ?>
+<section class="section section-alt">
+  <div class="container">
+    <span class="section-label">Latest Updates</span>
+    <h2 class="section-title">From Our Blog</h2>
+    <div class="blog-grid">
+      <?php while ( $blog_posts->have_posts() ) : $blog_posts->the_post(); ?>
+      <article class="blog-card">
+        <div class="blog-thumb">
+          <?php if ( has_post_thumbnail() ) : the_post_thumbnail('medium'); else : echo '📰'; endif; ?>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span>📅 <?php echo get_the_date('M d, Y'); ?></span>
+            <span>👤 <?php the_author(); ?></span>
+          </div>
+          <h3><?php the_title(); ?></h3>
+          <p><?php the_excerpt(); ?></p>
+          <a class="read-more" href="<?php the_permalink(); ?>">Read More →</a>
+        </div>
+      </article>
+      <?php endwhile; wp_reset_postdata(); ?>
+    </div>
+  </div>
+</section>
+<?php endif; ?>
+
+<!-- ══ NEWSLETTER ════════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div style="background:var(--orange-pale);border:2px solid var(--border);border-radius:var(--radius-lg);padding:52px 40px;text-align:center;max-width:640px;margin:0 auto">
+      <span class="section-label" style="justify-content:center">Stay Connected</span>
+      <h2 style="font-size:1.8rem;font-weight:900;margin-bottom:12px">Get Product Updates & Offers</h2>
+      <p style="color:var(--text-muted);margin-bottom:28px;font-size:16px">Subscribe for new product launches, distributor offers, and FMCG industry updates.</p>
+      <form style="display:flex;gap:10px;max-width:420px;margin:0 auto;flex-wrap:wrap" onsubmit="return false;">
+        <input type="email" placeholder="Enter your email address" style="flex:1;min-width:200px;padding:13px 16px;border-radius:9px;border:1.5px solid var(--border);font-size:15px;background:var(--white);font-family:inherit">
+        <button class="btn-submit" type="submit" style="width:auto;padding:13px 22px;white-space:nowrap">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<?php get_footer(); ?>

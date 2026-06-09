@@ -1,0 +1,185 @@
+<?php
+/**
+ * Template Name: Pricing
+ */
+get_header(); ?>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="/">Home</a> / Pricing</div>
+    <h1>Pricing — Cookies &amp; FMCG</h1>
+    <p>Transparent packs, wholesale rates and customised trade plans.</p>
+  </div>
+</div>
+
+<style>
+.plan-card { background:var(--white);border:2px solid var(--border);border-radius:var(--radius-lg);padding:36px;position:relative;transition:all 0.25s; }
+.plan-card:hover { transform:translateY(-4px);box-shadow:var(--shadow-md); }
+.plan-card.popular { border-color:var(--orange);box-shadow:0 8px 32px rgba(232,93,4,0.15); }
+.plan-badge { position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--orange);color:#fff;font-size:12px;font-weight:800;padding:5px 18px;border-radius:99px;letter-spacing:0.06em;text-transform:uppercase;white-space:nowrap; }
+.plan-price { font-size:3rem;font-weight:900;color:var(--orange);line-height:1; }
+.plan-price span { font-size:1rem;color:var(--text-muted);font-weight:500; }
+.plan-feature { display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--border);font-size:15px;color:var(--text-mid); }
+.plan-feature:last-child { border:none; }
+.plan-feature::before { content:'✓';color:var(--orange);font-weight:900;font-size:16px;flex-shrink:0; }
+.faq-item { border:1px solid var(--border);border-radius:12px;margin-bottom:12px;overflow:hidden; }
+.faq-q { padding:18px 22px;font-weight:700;font-size:16px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;background:var(--white); }
+.faq-q:hover { background:var(--orange-pale); }
+.faq-a { padding:0 22px 18px;color:var(--text-mid);font-size:15px;line-height:1.75;display:none; }
+.faq-item.open .faq-a { display:block; }
+.faq-item.open .faq-q { background:var(--orange-pale);color:var(--orange); }
+</style>
+
+<!-- ══ PRICING PLANS ════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <span class="section-label">Retail &amp; Trade Plans</span>
+    <h2 class="section-title">Choose Your Plan</h2>
+    <p class="section-sub">Transparent packs, wholesale rates and customised trade plans. Call for bulk orders: <a href="tel:+917991774777" style="color:var(--orange);font-weight:700">+91 79917 74777</a></p>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px">
+
+      <!-- Retail Pack -->
+      <div class="plan-card popular">
+        <div class="plan-badge">Popular</div>
+        <div style="font-weight:800;font-size:18px;margin-bottom:6px">Retail Pack</div>
+        <p style="color:var(--text-muted);font-size:14px;margin-bottom:20px">Perfect for shops &amp; direct customers</p>
+        <div class="plan-price">₹180 <span>/ pack</span></div>
+        <p style="color:var(--text-muted);font-size:13px;margin:8px 0 24px">Pack of 12 • Resealable pouch</p>
+        <div style="margin-bottom:28px">
+          <div class="plan-feature">Fresh daily batches</div>
+          <div class="plan-feature">Retail-ready packaging</div>
+          <div class="plan-feature">Min. order: 1 pack</div>
+          <div class="plan-feature">No credit terms required</div>
+        </div>
+        <a class="btn-contact" href="tel:+917991774777" style="width:100%;justify-content:center;display:flex">Order Now →</a>
+        <a href="/PRODUCTS" style="display:flex;justify-content:center;margin-top:10px;color:var(--text-muted);font-size:14px">View Details</a>
+      </div>
+
+      <!-- Distributor -->
+      <div class="plan-card">
+        <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--text);color:#fff;font-size:12px;font-weight:800;padding:5px 18px;border-radius:99px;letter-spacing:0.06em;text-transform:uppercase;white-space:nowrap">Trade</div>
+        <div style="font-weight:800;font-size:18px;margin-bottom:6px">Distributor</div>
+        <p style="color:var(--text-muted);font-size:14px;margin-bottom:20px">For resellers &amp; multi-outlet supply</p>
+        <div class="plan-price">₹160 <span>/ pack</span></div>
+        <p style="color:var(--text-muted);font-size:13px;margin:8px 0 24px">Minimum order: 50 packs</p>
+        <div style="margin-bottom:28px">
+          <div class="plan-feature">Priority fulfillment</div>
+          <div class="plan-feature">Volume discounts</div>
+          <div class="plan-feature">Credit terms (on approval)</div>
+          <div class="plan-feature">Dedicated support</div>
+        </div>
+        <a class="btn-contact" href="/registrations" style="width:100%;justify-content:center;display:flex;background:var(--text)">Apply →</a>
+        <a href="/contact" style="display:flex;justify-content:center;margin-top:10px;color:var(--text-muted);font-size:14px">Contact Sales</a>
+      </div>
+
+      <!-- Wholesale -->
+      <div class="plan-card">
+        <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#6b7280;color:#fff;font-size:12px;font-weight:800;padding:5px 18px;border-radius:99px;letter-spacing:0.06em;text-transform:uppercase;white-space:nowrap">Bulk</div>
+        <div style="font-weight:800;font-size:18px;margin-bottom:6px">Wholesale</div>
+        <p style="color:var(--text-muted);font-size:14px;margin-bottom:20px">Bulk orders, custom packaging</p>
+        <div class="plan-price">₹140 <span>/ pack</span></div>
+        <p style="color:var(--text-muted);font-size:13px;margin:8px 0 24px">Minimum order: 200 packs</p>
+        <div style="margin-bottom:28px">
+          <div class="plan-feature">Custom boxes &amp; labeling</div>
+          <div class="plan-feature">Dedicated account manager</div>
+          <div class="plan-feature">Private label available</div>
+          <div class="plan-feature">Best per-unit rate</div>
+        </div>
+        <a class="btn-contact" href="/contact" style="width:100%;justify-content:center;display:flex;background:#6b7280">Request Quote →</a>
+        <a href="/contact" style="display:flex;justify-content:center;margin-top:10px;color:var(--text-muted);font-size:14px">View Terms</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ BULK PRICING TABLE ══════════════════════════════════ -->
+<section class="section section-alt">
+  <div class="container">
+    <span class="section-label">Tiered Pricing</span>
+    <h2 class="section-title">Bulk Pricing &amp; Discounts</h2>
+    <p style="color:var(--text-muted);margin-bottom:32px">Tiered discounts apply on order value. Delivery &amp; GST extra.</p>
+
+    <div style="background:var(--white);border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-sm)">
+      <table style="width:100%;border-collapse:collapse">
+        <thead>
+          <tr style="background:linear-gradient(135deg,var(--orange),var(--orange-dark));color:#fff">
+            <th style="padding:16px 20px;text-align:left;font-weight:700;font-size:15px">Quantity (packs)</th>
+            <th style="padding:16px 20px;text-align:center;font-weight:700;font-size:15px">Unit Price (₹)</th>
+            <th style="padding:16px 20px;text-align:center;font-weight:700;font-size:15px">Discount</th>
+            <th style="padding:16px 20px;text-align:right;font-weight:700;font-size:15px">Estimated Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php
+          $tiers = [
+            ['1–49','₹180','—','₹180 × qty',''],
+            ['50–199','₹160','~11% off','₹160 × qty','var(--orange-pale)'],
+            ['200–499','₹150','~16% off','₹150 × qty',''],
+            ['500+','₹140','~22% off','Call for best price','var(--orange-pale)'],
+          ];
+          foreach($tiers as $t): ?>
+          <tr style="border-bottom:1px solid var(--border);<?php echo $t[4]?'background:'.$t[4].';':'' ?>">
+            <td style="padding:16px 20px;font-weight:700;font-size:15px"><?php echo $t[0]; ?></td>
+            <td style="padding:16px 20px;text-align:center;font-size:15px;font-weight:800;color:var(--orange)"><?php echo $t[1]; ?></td>
+            <td style="padding:16px 20px;text-align:center;font-size:14px;font-weight:700;color:<?php echo $t[2]=='—'?'var(--text-muted)':'#16a34a'; ?>"><?php echo $t[2]; ?></td>
+            <td style="padding:16px 20px;text-align:right;font-size:14px;color:var(--text-mid)"><?php echo $t[3]; ?></td>
+          </tr>
+          <?php endforeach; ?>
+        </tbody>
+      </table>
+    </div>
+    <p style="color:var(--text-muted);font-size:13px;margin-top:14px">
+      Note: Minimum pack contains 12 cookies. We can customize pack size and private-label options for large orders.
+    </p>
+  </div>
+</section>
+
+<!-- ══ FAQ ════════════════════════════════════════════════ -->
+<section class="section">
+  <div class="container" style="max-width:800px">
+    <span class="section-label">FAQ</span>
+    <h2 class="section-title">Frequently Asked — Pricing &amp; Orders</h2>
+
+    <div style="margin-top:32px">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Do prices include GST and delivery? <span>▾</span></div>
+        <div class="faq-a">Prices shown are exclusive of GST and shipping. Final invoice will include taxes and freight charges.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Can I get samples before ordering? <span>▾</span></div>
+        <div class="faq-a">Yes — sample packs can be arranged. Sample charge may apply and will be adjusted against first bulk order.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What are payment terms? <span>▾</span></div>
+        <div class="faq-a">Retail: full upfront. Distributor &amp; Wholesale: T+7 / T+15 credit terms on approval. Bank transfer or cheque accepted.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Do you provide private labeling? <span>▾</span></div>
+        <div class="faq-a">Yes — for orders 200 packs and above. Minimum label design &amp; printing lead time applies.</div>
+      </div>
+    </div>
+
+    <!-- Help Box -->
+    <div style="background:var(--orange-pale);border-radius:var(--radius-lg);padding:36px;text-align:center;margin-top:48px;border:1px solid var(--border)">
+      <h3 style="font-size:1.4rem;font-weight:900;margin-bottom:10px">Need Help with a Quote?</h3>
+      <p style="color:var(--text-muted);margin-bottom:22px">Our sales team helps with tailored pricing, logistics and labeling.</p>
+      <p style="color:var(--text-muted);font-size:13px;margin-bottom:20px">🕐 Office: Mon–Sat, 9:30 AM – 6:00 PM</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <a class="btn-contact" href="tel:+917991774777">📞 Request Callback</a>
+        <a href="/contact" style="display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:9px;border:1.5px solid var(--border);color:var(--text);font-weight:700">📄 Download Price List</a>
+      </div>
+      <p style="color:var(--text-muted);font-size:12px;margin-top:16px">© Arusha Group of Company — Prices subject to change. Terms apply.</p>
+    </div>
+  </div>
+</section>
+
+<script>
+function toggleFaq(el) {
+  const item = el.parentElement;
+  item.classList.toggle('open');
+}
+</script>
+
+<?php get_footer(); ?>

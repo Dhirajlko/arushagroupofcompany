@@ -1,0 +1,174 @@
+<?php
+/**
+ * Template Name: Products
+ */
+get_header(); ?>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="/">Home</a> / Products</div>
+    <h1>Our Products</h1>
+    <p>Quality FMCG Products — Baked Fresh, Distributed Across India</p>
+  </div>
+</div>
+
+<!-- FILTER -->
+<section style="background:#fff;padding:20px 0;border-bottom:1px solid #eee;position:sticky;top:0;z-index:100">
+  <div class="container" style="display:flex;gap:10px;flex-wrap:wrap">
+    <button onclick="filterCat(this,'all')" class="cat-btn active">All</button>
+    <button onclick="filterCat(this,'cookies')" class="cat-btn">🍪 Cookies</button>
+    <button onclick="filterCat(this,'jeera')" class="cat-btn">🌿 Jeera</button>
+    <button onclick="filterCat(this,'khari')" class="cat-btn">🥐 Khari</button>
+    <button onclick="filterCat(this,'premium')" class="cat-btn">✨ Premium</button>
+  </div>
+</section>
+
+<style>
+.cat-btn{
+  padding:8px 16px;
+  border-radius:50px;
+  border:1px solid #ddd;
+  background:#fff;
+  cursor:pointer;
+}
+.cat-btn.active,.cat-btn:hover{
+  background:#ff6b00;
+  color:#fff;
+}
+
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:20px;
+  margin:40px 0;
+}
+
+.product-card{
+  background:#fff;
+  border-radius:12px;
+  padding:15px;
+  text-align:center;
+  border:1px solid #eee;
+}
+
+.product-card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  border-radius:10px;
+}
+
+.price{
+  color:#ff6b00;
+  font-weight:700;
+}
+
+.btn{
+  background:#ff6b00;
+  color:#fff;
+  padding:8px 12px;
+  border-radius:6px;
+  text-decoration:none;
+  display:inline-block;
+  margin-top:10px;
+}
+
+.hidden{display:none;}
+</style>
+
+<section class="container">
+<div class="product-grid">
+
+<!-- Butter Cookies -->
+<div class="product-card product-item" data-cat="cookies">
+<img src="/products/butter-biscuit-almond-light.jpg">
+<h3>Butter Almond Cookies</h3>
+<div class="price">₹180</div>
+<a href="tel:+917991774777" class="btn">Order Now</a>
+</div>
+
+<div class="product-card product-item" data-cat="cookies">
+<img src="/products/butter-biscuit-almond.jpg">
+<h3>Butter Biscuit</h3>
+<div class="price">₹170</div>
+<a href="tel:+917991774777" class="btn">Order Now</a>
+</div>
+
+<div class="product-card product-item" data-cat="cookies">
+<img src="/products/butter-biscuit-coconut (2).jpg">
+<h3>Coconut Biscuit</h3>
+<div class="price">₹160</div>
+<a href="tel:+917991774777" class="btn">Order Now</a>
+</div>
+
+<div class="product-card product-item" data-cat="cookies">
+<img src="/products/butter-biscuit-plain.jpg">
+<h3>Plain Butter Biscuit</h3>
+<div class="price">₹150</div>
+<a href="tel:+917991774777" class="btn">Order Now</a>
+</div>
+
+<!-- Jeera -->
+<div class="product-card product-item" data-cat="jeera">
+<img src="/products/jeera-biscuit.jpg">
+<h3>Jeera Biscuit</h3>
+<div class="price">₹160</div>
+<a href="tel:+917991774777" class="btn">Order Now</a>
+</div>
+
+<div class="product-card product-item" data-cat="jeera">
+<img src="/products/jeera-biscuit-rectangle.jpg">
+<h3>Jeera Biscuit Rectangle</h3>
+<div class="price">₹170</div>
+<a href="tel:+917991774777" class="btn">Order Now</a>
+</div>
+
+<!-- Khari -->
+<div class="product-card product-item" data-cat="khari">
+<img src="/products/khari-puff-pack-1.jpg">
+<h3>Khari Puff</h3>
+<div class="price">₹140</div>
+<a href="tel:+917991774777" class="btn">Order Now</a>
+</div>
+
+<!-- Premium -->
+<div class="product-card product-item" data-cat="premium">
+<img src="/products/dryfruit-biscuit-round1.jpg">
+<h3>Dry Fruit Cookies</h3>
+<div class="price">₹220</div>
+<a href="tel:+917991774777" class="btn">Order Now</a>
+</div>
+
+<div class="product-card product-item" data-cat="premium">
+<img src="/products/kaju-biscuit-square1.jpg">
+<h3>Kaju Biscuit</h3>
+<div class="price">₹210</div>
+<a href="tel:+917991774777" class="btn">Order Now</a>
+</div>
+
+<div class="product-card product-item" data-cat="premium">
+<img src="/products/pista-biscuit-square-dark.jpg">
+<h3>Pista Biscuit</h3>
+<div class="price">₹210</div>
+<a href="tel:+917991774777" class="btn">Order Now</a>
+</div>
+
+</div>
+</section>
+
+<script>
+function filterCat(btn,cat){
+document.querySelectorAll('.cat-btn').forEach(b=>b.classList.remove('active'));
+btn.classList.add('active');
+
+document.querySelectorAll('.product-item').forEach(item=>{
+if(cat==='all'||item.dataset.cat===cat){
+item.classList.remove('hidden');
+}else{
+item.classList.add('hidden');
+}
+});
+}
+</script>
+
+<?php get_footer(); ?>

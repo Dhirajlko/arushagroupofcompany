@@ -1,0 +1,192 @@
+<?php
+/**
+ * Template Name: Registration
+ */
+get_header(); ?>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="/">Home</a> / Registration</div>
+    <h1>Business / Partner Registration</h1>
+    <p>Register your shop, distributorship or wholesale account with Arusha Group</p>
+  </div>
+</div>
+
+<style>
+.reg-form { background:var(--white);border-radius:var(--radius-lg);padding:40px;box-shadow:var(--shadow-md);border:1px solid var(--border); }
+.form-section-title { font-size:1.1rem;font-weight:800;color:var(--text);margin:28px 0 16px;padding-bottom:10px;border-bottom:2px solid var(--orange-pale);display:flex;align-items:center;gap:10px; }
+.form-row { display:grid;grid-template-columns:1fr 1fr;gap:16px; }
+.form-group label { display:block;font-weight:600;font-size:14px;color:var(--text-mid);margin-bottom:6px; }
+.form-group label span { color:var(--orange); }
+.form-group input,.form-group select,.form-group textarea {
+  width:100%;padding:12px 16px;border-radius:9px;border:1.5px solid var(--border);
+  background:var(--off-white);font-size:15px;color:var(--text);font-family:inherit;transition:all 0.2s;
+}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus {
+  outline:none;border-color:var(--orange);box-shadow:0 0 0 3px rgba(232,93,4,0.1);background:var(--white);
+}
+.summary-box { background:var(--orange-pale);border-radius:var(--radius);padding:20px;border:1px solid var(--border); }
+.why-register { background:var(--white);border-radius:var(--radius-lg);padding:32px;border:1px solid var(--border);height:fit-content; }
+</style>
+
+<section class="section">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:2fr 1fr;gap:32px;align-items:start">
+
+      <!-- Registration Form -->
+      <div class="reg-form">
+        <h2 style="font-size:1.5rem;font-weight:900;margin-bottom:6px">Partner Registration Form</h2>
+        <p style="color:var(--text-muted);margin-bottom:24px">Fill in your business details to get started. Need help? Call: <a href="tel:+917991774777" style="color:var(--orange);font-weight:700">+91 79917 74777</a></p>
+
+        <form method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
+          <input type="hidden" name="action" value="arusha_registration">
+          <?php wp_nonce_field('arusha_registration_nonce'); ?>
+
+          <!-- Business Identity -->
+          <div class="form-section-title">🏢 Business Identity</div>
+          <div class="form-group" style="margin-bottom:16px">
+            <label>Business / Firm Name <span>*</span></label>
+            <input type="text" name="business_name" placeholder="e.g., Arusha Delights" required>
+          </div>
+          <div class="form-row" style="margin-bottom:16px">
+            <div class="form-group">
+              <label>Owner / Authorized Person <span>*</span></label>
+              <input type="text" name="owner_name" placeholder="Full name" required>
+            </div>
+            <div class="form-group">
+              <label>Designation</label>
+              <input type="text" name="designation" placeholder="Proprietor / Manager">
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom:16px">
+            <label>Business Type</label>
+            <select name="business_type">
+              <option>Retail Shop</option>
+              <option>Wholesale Distributor</option>
+              <option>Supermarket / Chain Store</option>
+              <option>Online Seller</option>
+              <option>Cafe / Restaurant</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <!-- Contact Details -->
+          <div class="form-section-title">📞 Contact Details</div>
+          <div class="form-row" style="margin-bottom:16px">
+            <div class="form-group">
+              <label>Phone <span>*</span></label>
+              <input type="tel" name="phone" placeholder="+91 XXXXX XXXXX" required>
+              <small style="color:var(--text-muted);font-size:12px">Include country code (optional). Only digits allowed.</small>
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" name="email" placeholder="name@business.com">
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom:16px">
+            <label>Website / Social (optional)</label>
+            <input type="text" name="website" placeholder="https://example.com or Instagram handle">
+          </div>
+
+          <!-- Address -->
+          <div class="form-section-title">📍 Address</div>
+          <div class="form-group" style="margin-bottom:16px">
+            <label>Street Address</label>
+            <input type="text" name="street" placeholder="Door no, Street, Locality">
+          </div>
+          <div class="form-row" style="margin-bottom:16px">
+            <div class="form-group">
+              <label>City / Town</label>
+              <input type="text" name="city" placeholder="Lucknow">
+            </div>
+            <div class="form-group">
+              <label>State</label>
+              <input type="text" name="state" placeholder="Uttar Pradesh">
+            </div>
+          </div>
+          <div class="form-row" style="margin-bottom:16px">
+            <div class="form-group">
+              <label>Pincode / ZIP</label>
+              <input type="text" name="pincode" placeholder="226002">
+            </div>
+            <div class="form-group">
+              <label>Country</label>
+              <input type="text" name="country" value="India">
+            </div>
+          </div>
+
+          <!-- Business IDs -->
+          <div class="form-section-title">📋 Business IDs &amp; Documents</div>
+          <div class="form-row" style="margin-bottom:16px">
+            <div class="form-group">
+              <label>GSTIN (if any)</label>
+              <input type="text" name="gstin" placeholder="22AAAAA0000A1Z5">
+              <small style="color:var(--text-muted);font-size:12px">Format: 15 character GSTIN</small>
+            </div>
+            <div class="form-group">
+              <label>PAN (if any)</label>
+              <input type="text" name="pan" placeholder="ABCDE1234F">
+              <small style="color:var(--text-muted);font-size:12px">Format: 10 character PAN</small>
+            </div>
+          </div>
+
+          <!-- Products & Notes -->
+          <div class="form-section-title">📦 Products &amp; Notes</div>
+          <div class="form-group" style="margin-bottom:16px">
+            <label>Product Categories Interested In</label>
+            <select name="categories[]" multiple style="height:130px">
+              <option>Cookies &amp; Biscuits</option>
+              <option>Savory Snacks</option>
+              <option>Beverages</option>
+              <option>Confectionery</option>
+              <option>Food &amp; Beverages</option>
+              <option>Household Essentials</option>
+              <option>Personal Care</option>
+              <option>Health &amp; Wellness</option>
+              <option>Other FMCG</option>
+            </select>
+            <small style="color:var(--text-muted);font-size:12px">Hold Ctrl / Cmd to select multiple</small>
+          </div>
+          <div class="form-group" style="margin-bottom:24px">
+            <label>Notes (special requests)</label>
+            <textarea name="notes" placeholder="Packing, labeling, preferred delivery window, etc." rows="4"></textarea>
+          </div>
+
+          <!-- Summary -->
+          <div class="summary-box" style="margin-bottom:24px">
+            <h4 style="font-weight:800;margin-bottom:8px">📋 Quick Summary — Review before submit</h4>
+            <p style="color:var(--text-muted);font-size:14px">Please verify all details above are correct before submitting your registration.</p>
+          </div>
+
+          <button type="submit" class="btn-submit" style="font-size:16px;padding:16px">Submit Registration →</button>
+        </form>
+      </div>
+
+      <!-- Sidebar -->
+      <div style="display:flex;flex-direction:column;gap:20px">
+
+        <div class="why-register">
+          <h3 style="font-size:1.2rem;font-weight:800;margin-bottom:16px;color:var(--orange)">Why Register?</h3>
+          <p style="color:var(--text-mid);font-size:15px;line-height:1.75;margin-bottom:16px">Get wholesale pricing, priority supply, and dedicated support for partners.</p>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div style="display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--text-mid)"><span style="color:var(--orange);font-weight:900">✓</span> Wholesale pricing from ₹140/pack</div>
+            <div style="display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--text-mid)"><span style="color:var(--orange);font-weight:900">✓</span> Priority stock fulfillment</div>
+            <div style="display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--text-mid)"><span style="color:var(--orange);font-weight:900">✓</span> Credit terms on approval</div>
+            <div style="display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--text-mid)"><span style="color:var(--orange);font-weight:900">✓</span> Dedicated account manager</div>
+            <div style="display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--text-mid)"><span style="color:var(--orange);font-weight:900">✓</span> Custom labeling available</div>
+          </div>
+        </div>
+
+        <div style="background:var(--orange);border-radius:var(--radius-lg);padding:28px;text-align:center">
+          <h4 style="color:#fff;font-weight:800;font-size:16px;margin-bottom:8px">Need Help?</h4>
+          <p style="color:rgba(255,255,255,0.85);font-size:14px;margin-bottom:16px">Request a callback from our sales team</p>
+          <a href="tel:+917991774777" style="display:flex;align-items:center;justify-content:center;gap:8px;background:#fff;color:var(--orange);padding:12px 20px;border-radius:9px;font-weight:800;font-size:16px">📞 +91 79917 74777</a>
+          <p style="color:rgba(255,255,255,0.7);font-size:12px;margin-top:12px">Mon–Sat, 9:30 AM – 6:00 PM</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<?php get_footer(); ?>
