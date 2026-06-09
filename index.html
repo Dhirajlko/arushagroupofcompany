@@ -1,10 +1,380 @@
-<?php
-/**
- * Template Name: Blog
- * Also used as index.php for blog listing
- */
-get_header(); ?>
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arusha Group Blog – FMCG Updates & News</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ===== CSS VARIABLES ===== */
+    :root {
+      --orange: #e85d04;
+      --orange-dark: #c44b00;
+      --orange-light: #ff7b2e;
+      --orange-pale: #fff3ed;
+      --white: #ffffff;
+      --off-white: #fdfaf7;
+      --text: #1a1208;
+      --text-mid: #4a3728;
+      --text-muted: #8a7060;
+      --border: rgba(232,93,4,0.15);
+      --shadow-sm: 0 2px 12px rgba(232,93,4,0.08);
+      --shadow-md: 0 8px 32px rgba(232,93,4,0.14);
+      --radius: 12px;
+      --radius-lg: 20px;
+      --container: 1200px;
+    }
 
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', 'Outfit', system-ui, sans-serif;
+      background: var(--off-white);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* Header & Navigation */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: var(--white);
+      border-bottom: 3px solid var(--orange);
+      box-shadow: var(--shadow-md);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 78px;
+      gap: 24px;
+      padding: 0 20px;
+      max-width: var(--container);
+      margin: 0 auto;
+    }
+
+    .site-brand {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .brand-logo {
+      width: 50px;
+      height: 50px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--orange), var(--orange-light));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 20px;
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(232,93,4,0.35);
+    }
+
+    .brand-info .brand-name {
+      font-weight: 800;
+      font-size: 16px;
+      color: var(--text);
+    }
+
+    .brand-info .brand-tagline {
+      font-size: 11px;
+      color: var(--orange);
+      font-weight: 600;
+    }
+
+    .primary-nav ul {
+      display: flex;
+      gap: 4px;
+      list-style: none;
+    }
+
+    .primary-nav a {
+      display: block;
+      padding: 9px 15px;
+      border-radius: 8px;
+      color: var(--text-mid);
+      font-weight: 600;
+      font-size: 15px;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    .primary-nav a:hover {
+      color: var(--orange);
+    }
+
+    .btn-phone, .btn-contact {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 16px;
+      border-radius: 9px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .btn-phone {
+      background: var(--orange-pale);
+      border: 1px solid var(--border);
+      color: var(--orange-dark);
+    }
+
+    .btn-contact {
+      background: linear-gradient(135deg, var(--orange), var(--orange-light));
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(232,93,4,0.3);
+    }
+
+    .hamburger {
+      display: none;
+      background: var(--orange-pale);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 9px 12px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 900px) {
+      .primary-nav, .btn-phone { display: none; }
+      .hamburger { display: block; }
+      .nav-inner { justify-content: space-between; }
+    }
+
+    /* Page Hero */
+    .page-hero {
+      background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+      padding: 64px 0;
+      color: #fff;
+      text-align: center;
+    }
+
+    .page-hero h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+
+    .breadcrumb {
+      font-size: 13px;
+      margin-bottom: 16px;
+      opacity: 0.8;
+    }
+
+    .breadcrumb a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+    }
+
+    /* Blog Grid */
+    .section {
+      padding: 80px 0;
+    }
+
+    .blog-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 24px;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+    }
+
+    @media (max-width: 640px) {
+      .blog-card { grid-template-columns: 1fr; }
+    }
+
+    .blog-thumb {
+      background: linear-gradient(135deg, var(--orange-pale), #ffe8d0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      min-height: 160px;
+    }
+
+    .blog-body {
+      padding: 24px;
+    }
+
+    .blog-meta {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+      display: flex;
+      gap: 12px;
+    }
+
+    .blog-meta span {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .blog-body h2 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .blog-body h2 a {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .blog-body p {
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.65;
+      margin-bottom: 14px;
+    }
+
+    .read-more {
+      color: var(--orange);
+      font-weight: 700;
+      font-size: 14px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Sidebar */
+    .sidebar-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      border: 1px solid var(--border);
+      margin-bottom: 24px;
+    }
+
+    .sidebar-orange {
+      background: var(--orange-pale);
+    }
+
+    .sidebar-gradient {
+      background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+      text-align: center;
+      color: white;
+    }
+
+    .category-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 11px 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-mid);
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    /* Footer */
+    .site-footer {
+      background: var(--text);
+      color: rgba(255,255,255,0.7);
+      padding: 64px 0 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+    }
+
+    @media (max-width: 768px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .blog-card { grid-template-columns: 1fr; }
+      .container { padding: 0 16px; }
+    }
+
+    @media (max-width: 480px) {
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+
+    .footer-col h4 {
+      color: #fff;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .footer-col a {
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-contact-small {
+      background: var(--orange);
+      padding: 8px 16px;
+      border-radius: 9px;
+      color: white;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header (Static) -->
+<header class="site-header">
+  <div class="nav-inner">
+    <div class="site-brand">
+      <div class="brand-logo">A</div>
+      <div class="brand-info">
+        <div class="brand-name">Arusha Group of Company</div>
+        <div class="brand-tagline">FMCG – Lucknow</div>
+      </div>
+    </div>
+    <nav class="primary-nav">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/products">Products</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn-phone" href="tel:+917991774777">📞 79917 74777</a>
+      <a class="btn-contact" href="/contact">Become Partner</a>
+    </div>
+    <button class="hamburger" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<!-- Page Hero -->
 <div class="page-hero">
   <div class="container">
     <div class="breadcrumb"><a href="/">Home</a> / Blog</div>
@@ -13,126 +383,92 @@ get_header(); ?>
   </div>
 </div>
 
+<!-- Blog Content -->
 <section class="section">
   <div class="container">
     <div style="display:grid;grid-template-columns:2fr 1fr;gap:48px;align-items:start">
 
-      <!-- Blog Posts -->
+      <!-- LEFT: Blog Posts (Static Sample Posts) -->
       <div>
-        <?php if ( have_posts() ) : ?>
-          <?php while ( have_posts() ) : the_post(); ?>
-          <article class="blog-card" style="display:grid;grid-template-columns:200px 1fr;margin-bottom:24px;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-sm)">
-            <div style="background:linear-gradient(135deg,var(--orange-pale),#ffe8d0);display:flex;align-items:center;justify-content:center;font-size:48px;min-height:160px">
-              <?php if(has_post_thumbnail()) { the_post_thumbnail('medium',['style'=>'width:100%;height:100%;object-fit:cover']); } else { echo '📰'; } ?>
-            </div>
-            <div style="padding:24px">
-              <div class="blog-meta">
-                <span>📅 <?php echo get_the_date('M d, Y'); ?></span>
-                <span>👤 <?php the_author(); ?></span>
-                <?php $cats = get_the_category(); if($cats): ?><span>📁 <?php echo $cats[0]->name; ?></span><?php endif; ?>
-              </div>
-              <h2 style="font-size:1.2rem;font-weight:800;margin-bottom:10px;line-height:1.35">
-                <a href="<?php the_permalink(); ?>" style="color:var(--text)"><?php the_title(); ?></a>
-              </h2>
-              <p style="color:var(--text-muted);font-size:14px;line-height:1.65;margin-bottom:14px"><?php the_excerpt(); ?></p>
-              <a class="read-more" href="<?php the_permalink(); ?>">Read More →</a>
-            </div>
-          </article>
-          <?php endwhile; ?>
-          <div style="margin-top:32px"><?php the_posts_pagination(['mid_size'=>2]); ?></div>
 
-        <?php else : ?>
-          <!-- Sample blog post when no posts exist -->
-          <article class="blog-card" style="border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-sm);margin-bottom:24px">
-            <div style="height:220px;background:linear-gradient(135deg,var(--orange-pale),#ffe8d0);display:flex;align-items:center;justify-content:center;font-size:64px">🏭</div>
-            <div style="padding:32px">
-              <div class="blog-meta">
-                <span>📅 March 1, 2026</span>
-                <span>👤 Arusha Group</span>
-                <span>📁 FMCG News</span>
-              </div>
-              <h2 style="font-size:1.5rem;font-weight:900;margin-bottom:14px">Welcome to Arusha Group of Company — 7 Years of Quality FMCG Supply</h2>
-              <p style="color:var(--text-muted);font-size:15px;line-height:1.75;margin-bottom:16px">
-                We are proud to complete 7 years of serving retailers, distributors, and wholesale partners across India. From our base in Lucknow, Uttar Pradesh, we have grown our product range from a handful of FMCG goods to over 500 products across Food & Beverages, Personal Care, Household Essentials, and Health & Wellness.
-              </p>
-              <p style="color:var(--text-muted);font-size:15px;line-height:1.75;margin-bottom:20px">
-                Our commitment has always been simple: deliver good quality products at the right price, on time, every time. We believe in growth together — your success is our success.
-              </p>
-              <div style="background:var(--orange-pale);border-left:4px solid var(--orange);padding:16px 20px;border-radius:0 10px 10px 0;margin-bottom:20px">
-                <p style="color:var(--text);font-style:italic;font-size:15px;margin:0">"Maal le lo humse — fayda hi fayda hoga!" — Mrs. Shikha, Founder</p>
-              </div>
-              <a class="btn-contact" href="/contact">Partner With Us →</a>
+        <!-- Post 1 -->
+        <article class="blog-card">
+          <div class="blog-thumb">🏭</div>
+          <div class="blog-body">
+            <div class="blog-meta">
+              <span>📅 March 1, 2026</span>
+              <span>👤 Arusha Group</span>
+              <span>📁 FMCG News</span>
             </div>
-          </article>
+            <h2>Welcome to Arusha Group of Company — 7 Years of Quality FMCG Supply</h2>
+            <p>We are proud to complete 7 years of serving retailers, distributors, and wholesale partners across India. From our base in Lucknow, Uttar Pradesh, we have grown our product range from a handful of FMCG goods to over 500 products across Food & Beverages, Personal Care, Household Essentials, and Health & Wellness.</p>
+            <p>Our commitment has always been simple: deliver good quality products at the right price, on time, every time. We believe in growth together — your success is our success.</p>
+            <div style="background:var(--orange-pale);border-left:4px solid var(--orange);padding:16px 20px;border-radius:0 10px 10px 0;margin:16px 0">
+              <p style="color:var(--text);font-style:italic;margin:0">"Maal le lo humse — fayda hi fayda hoga!" — Mrs. Shikha, Founder</p>
+            </div>
+            <a class="btn-contact" href="/contact" style="display:inline-block;margin-top:8px">Partner With Us →</a>
+          </div>
+        </article>
 
-          <article class="blog-card" style="border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-sm);margin-bottom:24px">
-            <div style="height:220px;background:linear-gradient(135deg,#fff8f0,#ffe8d0);display:flex;align-items:center;justify-content:center;font-size:64px">🍪</div>
-            <div style="padding:32px">
-              <div class="blog-meta">
-                <span>📅 February 15, 2026</span>
-                <span>👤 Arusha Group</span>
-                <span>📁 Products</span>
-              </div>
-              <h2 style="font-size:1.5rem;font-weight:900;margin-bottom:14px">Introducing Classic Butter Cookies — Our Best-Selling FMCG Product</h2>
-              <p style="color:var(--text-muted);font-size:15px;line-height:1.75;margin-bottom:16px">
-                Our Classic Butter Cookies have quickly become our best-selling product, loved by retailers and consumers alike across Uttar Pradesh and beyond. Baked fresh using traditional recipes and pure butter, these cookies offer a soft, crisp, melt-in-mouth texture that customers keep coming back for.
-              </p>
-              <p style="color:var(--text-muted);font-size:15px;line-height:1.75;margin-bottom:20px">
-                Available in three variants — Classic Butter (₹180), Chocolate Chip (₹200), and Almond Crunch (₹210) — each pack of 12 comes in a retail-ready resealable pouch. Wholesale pricing starts at ₹140/pack for orders of 200+ packs.
-              </p>
-              <a class="btn-contact" href="/PRODUCTS">View Product Details →</a>
+        <!-- Post 2 -->
+        <article class="blog-card">
+          <div class="blog-thumb">🍪</div>
+          <div class="blog-body">
+            <div class="blog-meta">
+              <span>📅 February 15, 2026</span>
+              <span>👤 Arusha Group</span>
+              <span>📁 Products</span>
             </div>
-          </article>
+            <h2>Introducing Classic Butter Cookies — Our Best-Selling FMCG Product</h2>
+            <p>Our Classic Butter Cookies have quickly become our best-selling product, loved by retailers and consumers alike across Uttar Pradesh and beyond. Baked fresh using traditional recipes and pure butter, these cookies offer a soft, crisp, melt-in-mouth texture that customers keep coming back for.</p>
+            <p>Available in three variants — Classic Butter (₹180), Chocolate Chip (₹200), and Almond Crunch (₹210) — each pack of 12 comes in a retail-ready resealable pouch. Wholesale pricing starts at ₹140/pack for orders of 200+ packs.</p>
+            <a class="read-more" href="/products">View Product Details →</a>
+          </div>
+        </article>
 
-          <article class="blog-card" style="border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-sm)">
-            <div style="height:220px;background:linear-gradient(135deg,#f0fdf4,#dcfce7);display:flex;align-items:center;justify-content:center;font-size:64px">🤝</div>
-            <div style="padding:32px">
-              <div class="blog-meta">
-                <span>📅 January 20, 2026</span>
-                <span>👤 Arusha Group</span>
-                <span>📁 Distribution</span>
-              </div>
-              <h2 style="font-size:1.5rem;font-weight:900;margin-bottom:14px">How to Become a Distributor — Wholesale Opportunities with Arusha Group</h2>
-              <p style="color:var(--text-muted);font-size:15px;line-height:1.75;margin-bottom:16px">
-                We are expanding our distribution network across India and are looking for committed retail partners, wholesale distributors, and dealerships. Our distributor program offers competitive margins, priority stock fulfillment, credit terms on approval, and a dedicated account manager.
-              </p>
-              <p style="color:var(--text-muted);font-size:15px;line-height:1.75;margin-bottom:20px">
-                Getting started is easy — simply register your business on our Registration page, or call us directly at +91 79917 74777. Our team will get in touch within 24 hours to discuss your requirements and set up your account.
-              </p>
-              <a class="btn-contact" href="/registrations">Register as Distributor →</a>
+        <!-- Post 3 -->
+        <article class="blog-card">
+          <div class="blog-thumb">🤝</div>
+          <div class="blog-body">
+            <div class="blog-meta">
+              <span>📅 January 20, 2026</span>
+              <span>👤 Arusha Group</span>
+              <span>📁 Distribution</span>
             </div>
-          </article>
-        <?php endif; ?>
+            <h2>How to Become a Distributor — Wholesale Opportunities with Arusha Group</h2>
+            <p>We are expanding our distribution network across India and are looking for committed retail partners, wholesale distributors, and dealerships. Our distributor program offers competitive margins, priority stock fulfillment, credit terms on approval, and a dedicated account manager.</p>
+            <p>Getting started is easy — simply register your business on our Registration page, or call us directly at +91 79917 74777. Our team will get in touch within 24 hours to discuss your requirements and set up your account.</p>
+            <a class="btn-contact" href="/registrations" style="display:inline-block;margin-top:8px">Register as Distributor →</a>
+          </div>
+        </article>
+
       </div>
 
-      <!-- Sidebar -->
+      <!-- RIGHT: Sidebar -->
       <div style="display:flex;flex-direction:column;gap:24px">
 
-        <!-- About -->
-        <div style="background:var(--orange-pale);border-radius:var(--radius-lg);padding:28px;border:1px solid var(--border)">
+        <!-- About Card -->
+        <div class="sidebar-card sidebar-orange">
           <div style="font-size:40px;margin-bottom:14px">🏭</div>
-          <h3 style="font-weight:800;font-size:1.1rem;margin-bottom:10px">About Arusha Group</h3>
+          <h3 style="font-weight:800;margin-bottom:10px">About Arusha Group</h3>
           <p style="color:var(--text-muted);font-size:14px;line-height:1.7;margin-bottom:16px">Partnership firm in FMCG sector for 7+ years. Quality products, timely supply, steady profit.</p>
           <a class="btn-contact" href="/about" style="display:flex;justify-content:center;font-size:14px;padding:11px">Read Our Story →</a>
         </div>
 
-        <!-- Categories -->
-        <div style="background:var(--white);border-radius:var(--radius-lg);padding:28px;border:1px solid var(--border)">
-          <h3 style="font-weight:800;font-size:1.1rem;margin-bottom:16px">Product Categories</h3>
-          <?php
-          $cats = [['🌾','Food & Beverages','/PRODUCTS'],['🏠','Household Essentials','/PRODUCTS'],['🧴','Personal Care','/PRODUCTS'],['💊','Health & Wellness','/PRODUCTS']];
-          foreach($cats as $c): ?>
-          <a href="<?php echo $c[2]; ?>" style="display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--border);color:var(--text-mid);font-weight:600;font-size:14px">
-            <span><?php echo $c[0]; ?></span><?php echo $c[1]; ?> →
-          </a>
-          <?php endforeach; ?>
+        <!-- Categories Card -->
+        <div class="sidebar-card">
+          <h3 style="font-weight:800;margin-bottom:16px">Product Categories</h3>
+          <a href="/products" class="category-link"><span>🌾</span> Food & Beverages →</a>
+          <a href="/products" class="category-link"><span>🏠</span> Household Essentials →</a>
+          <a href="/products" class="category-link"><span>🧴</span> Personal Care →</a>
+          <a href="/products" class="category-link"><span>💊</span> Health & Wellness →</a>
         </div>
 
         <!-- Contact CTA -->
-        <div style="background:linear-gradient(135deg,var(--orange),var(--orange-dark));border-radius:var(--radius-lg);padding:28px;text-align:center">
-          <h3 style="color:#fff;font-weight:800;font-size:1.1rem;margin-bottom:8px">Become a Partner</h3>
+        <div class="sidebar-card sidebar-gradient">
+          <h3 style="color:#fff;font-weight:800;margin-bottom:8px">Become a Partner</h3>
           <p style="color:rgba(255,255,255,0.85);font-size:14px;margin-bottom:16px">Join 1000+ retailers across India</p>
-          <a href="tel:+917991774777" style="display:flex;align-items:center;justify-content:center;gap:8px;background:#fff;color:var(--orange);padding:11px 18px;border-radius:9px;font-weight:800;font-size:15px">📞 Call Now</a>
+          <a href="tel:+917991774777" style="display:flex;align-items:center;justify-content:center;gap:8px;background:#fff;color:var(--orange);padding:11px 18px;border-radius:9px;font-weight:800;text-decoration:none">📞 Call Now</a>
         </div>
 
       </div>
@@ -140,4 +476,58 @@ get_header(); ?>
   </div>
 </section>
 
-<?php get_footer(); ?>
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="brand-logo" style="margin-bottom:16px">A</div>
+        <p>Arusha Group of Company – Leading FMCG manufacturer and distributor based in Lucknow, serving India since 2018.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul style="list-style:none">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/products">Products</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="/products">Food & Beverages</a></li>
+          <li><a href="/products">Household Essentials</a></li>
+          <li><a href="/products">Personal Care</a></li>
+          <li><a href="/products">Health & Wellness</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact Info</h4>
+        <ul>
+          <li>📍 Sector B, Vijay Nagar, Nilmatha, Lucknow – 226002</li>
+          <li>📞 <a href="tel:+917991774777">+91 79917 74777</a></li>
+          <li>✉️ <a href="mailto:arushagroupofcopanyfmcg@gmail.com">arushagroupofcopanyfmcg@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2025 Arusha Group of Company. All rights reserved.</div>
+      <div>Made with ❤️ in Lucknow</div>
+    </div>
+  </div>
+</footer>
+
+<!-- Simple mobile menu toggle (optional) -->
+<script>
+  const hamburger = document.querySelector('.hamburger');
+  if (hamburger) {
+    hamburger.addEventListener('click', () => {
+      const nav = document.querySelector('.primary-nav');
+      if (nav) nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+    });
+  }
+</script>
+</body>
+</html>
