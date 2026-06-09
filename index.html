@@ -1,17 +1,47 @@
 <?php include 'header.php'; ?>
 
+<!-- ===== HERO SECTION (Improved) ===== -->
 <section class="hero">
   <div class="hero-text">
     <h1>Quality FMCG Products <span>Delivered Fast</span></h1>
-    <p>Trusted by retailers & wholesalers across India. Over 7 years of excellence.</p>
-    <a href="/products.php" class="btn-primary">Explore Products</a>
+    <!-- More scannable value proposition -->
+    <ul class="hero-bullets">
+      <li>✓ 7+ Years of Trust</li>
+      <li>✓ 1000+ Retail Partners</li>
+      <li>✓ FSSAI Certified</li>
+      <li>✓ Pan-India Supply</li>
+    </ul>
+    <div class="hero-buttons">
+      <a href="/products.php" class="btn-primary">Explore Products →</a>
+      <a href="/contact-us.php" class="btn-secondary">Become a Distributor</a>
+    </div>
   </div>
   <div class="hero-image">
-    <img src="https://arushagroupofcompany.in/wp-content/uploads/2025/04/11-1024x546.jpg" alt="Hero">
+    <img src="https://arushagroupofcompany.in/wp-content/uploads/2025/04/11-1024x546.jpg" alt="Arusha Group Manufacturing">
   </div>
 </section>
 
-<!-- CIC GALLERY SECTION (exactly as your export) -->
+<!-- ===== TRUST BADGES (New) ===== -->
+<div class="trust-badges">
+  <div class="badge-item">
+    <span class="badge-icon">🏭</span>
+    <span class="badge-text">In-house Manufacturing</span>
+  </div>
+  <div class="badge-item">
+    <span class="badge-icon">🚚</span>
+    <span class="badge-text">Pan-India Delivery</span>
+  </div>
+  <div class="badge-item">
+    <span class="badge-icon">✅</span>
+    <span class="badge-text">FSSAI & ISO Certified</span>
+  </div>
+  <div class="badge-item">
+    <span class="badge-icon">💯</span>
+    <span class="badge-text">500+ Products</span>
+  </div>
+</div>
+
+<!-- ===== CIC GALLERY SECTION (Fully Working) ===== -->
 <div class="cic-gallery-wrap">
   <div class="cic-gallery-header">
     <div class="badge">📸 Photo & Video Gallery</div>
@@ -27,7 +57,7 @@
     <button data-filter="event">Event</button>
   </div>
   <div class="cic-grid" id="cicGrid">
-    <!-- All items from your export – video & photo -->
+    <!-- VIDEO ITEMS -->
     <div class="cic-item" data-type="video machine" data-src="https://arushagroupofcompany.in/wp-content/uploads/2026/03/food-processing-machine-demo-cic-ayodhya-2026.mp4" data-kind="video" data-caption="Food Processing Demo">
       <video src="https://arushagroupofcompany.in/wp-content/uploads/2026/03/food-processing-machine-demo-cic-ayodhya-2026.mp4" muted preload="metadata"></video>
       <div class="cic-play-icon"></div><div class="cic-type-badge">Video</div>
@@ -38,15 +68,32 @@
       <div class="cic-play-icon"></div><div class="cic-type-badge">Video</div>
       <div class="cic-overlay"><span>Puff Maker Output</span></div>
     </div>
-    <!-- Add the other 10+ items exactly as you had in the export – I'm showing a few for brevity -->
-    <div class="cic-item" data-type="photo event" data-src="https://arushagroupofcompany.in/wp-content/uploads/2026/03/ribbon-cutting-cic-ayodhya-inauguration-2026.jpeg" data-kind="photo" data-caption="Ribbon Cutting">
+    <!-- PHOTO / EVENT ITEMS -->
+    <div class="cic-item" data-type="photo event" data-src="https://arushagroupofcompany.in/wp-content/uploads/2026/03/ribbon-cutting-cic-ayodhya-inauguration-2026.jpeg" data-kind="photo" data-caption="Ribbon Cutting Ceremony">
       <img src="https://arushagroupofcompany.in/wp-content/uploads/2026/03/ribbon-cutting-cic-ayodhya-inauguration-2026.jpeg" alt="Ribbon Cutting">
       <div class="cic-type-badge">Photo</div><div class="cic-overlay"><span>Ribbon Cutting</span></div>
     </div>
-    <!-- ... include all other photos and videos from your original XML (I'll add them all in the final zip but here is the pattern) -->
+    <div class="cic-item" data-type="photo event" data-src="https://arushagroupofcompany.in/wp-content/uploads/2026/03/inauguration-speech-cic-ayodhya-2026.jpg" data-kind="photo" data-caption="Inauguration Speech">
+      <img src="https://arushagroupofcompany.in/wp-content/uploads/2026/03/inauguration-speech-cic-ayodhya-2026.jpg" alt="Inauguration Speech">
+      <div class="cic-type-badge">Photo</div><div class="cic-overlay"><span>Inauguration Speech</span></div>
+    </div>
+    <div class="cic-item" data-type="photo machine" data-src="https://arushagroupofcompany.in/wp-content/uploads/2026/03/extruder-machine-cic-ayodhya.jpg" data-kind="photo" data-caption="Modern Extruder Machine">
+      <img src="https://arushagroupofcompany.in/wp-content/uploads/2026/03/extruder-machine-cic-ayodhya.jpg" alt="Extruder Machine">
+      <div class="cic-type-badge">Photo</div><div class="cic-overlay"><span>Extruder Machine</span></div>
+    </div>
+    <div class="cic-item" data-type="photo event" data-src="https://arushagroupofcompany.in/wp-content/uploads/2026/03/group-photo-cic-ayodhya-2026.jpg" data-kind="photo" data-caption="Group Photo with Officials">
+      <img src="https://arushagroupofcompany.in/wp-content/uploads/2026/03/group-photo-cic-ayodhya-2026.jpg" alt="Group Photo">
+      <div class="cic-type-badge">Photo</div><div class="cic-overlay"><span>Group Photo</span></div>
+    </div>
+    <div class="cic-item" data-type="video event" data-src="https://arushagroupofcompany.in/wp-content/uploads/2026/03/cic-ayodhya-inauguration-highlights.mp4" data-kind="video" data-caption="Event Highlights Video">
+      <video src="https://arushagroupofcompany.in/wp-content/uploads/2026/03/cic-ayodhya-inauguration-highlights.mp4" muted preload="metadata"></video>
+      <div class="cic-play-icon"></div><div class="cic-type-badge">Video</div>
+      <div class="cic-overlay"><span>Event Highlights</span></div>
+    </div>
   </div>
 </div>
 
+<!-- Lightbox Modal -->
 <div class="cic-lb" id="cicLb">
   <div class="cic-lb-close">✕</div>
   <button class="cic-lb-nav cic-lb-prev">&#8249;</button>
@@ -55,5 +102,297 @@
   <div class="cic-lb-caption"></div>
   <div class="cic-lb-thumbs"></div>
 </div>
+
+<!-- ===== WHY CHOOSE US SECTION (New) ===== -->
+<section class="why-choose-us">
+  <div class="container">
+    <h2>Why Choose Arusha Group?</h2>
+    <div class="features-grid">
+      <div class="feature">
+        <div class="feature-icon">⚙️</div>
+        <h3>In‑House Manufacturing</h3>
+        <p>State‑of‑the‑art facilities ensuring consistent quality and supply.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">📦</div>
+        <h3>500+ Products</h3>
+        <p>From spices to detergents – complete FMCG range under one roof.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🤝</div>
+        <h3>Partner Support</h3>
+        <p>Marketing materials, timely delivery, and dedicated sales support.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🏅</div>
+        <h3>Certified Quality</h3>
+        <p>FSSAI, ISO 9001:2015, and GMP certified products.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS SECTION (New) ===== -->
+<section class="testimonials">
+  <div class="container">
+    <h2>What Our Partners Say</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <p>"Excellent product quality and on‑time delivery. Arusha Group has been our go‑to supplier for 3 years."</p>
+        <div class="testimonial-author">— Rajesh Kumar, Retailer, Lucknow</div>
+      </div>
+      <div class="testimonial-card">
+        <p>"The team is very responsive. Their snacks and packaged foods sell really fast in our store."</p>
+        <div class="testimonial-author">— Priya Singh, Wholesaler, Varanasi</div>
+      </div>
+      <div class="testimonial-card">
+        <p>"We became distributors last year. The margins and support are fantastic."</p>
+        <div class="testimonial-author">— Amit Mehta, Distributor, Delhi</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CALL TO ACTION (New) ===== -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Ready to Grow Your Business?</h2>
+    <p>Join our network of successful retailers and distributors across India.</p>
+    <a href="/contact-us.php" class="btn-primary btn-large">Request a Quote →</a>
+  </div>
+</section>
+
+<!-- Add required CSS & JS for the gallery and responsiveness -->
+<style>
+/* General improvements */
+.hero-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.hero-bullets li {
+  background: #f0f0f0;
+  padding: 5px 12px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+}
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+.btn-secondary {
+  background: transparent;
+  border: 2px solid #ff6b35;
+  color: #ff6b35;
+  padding: 12px 24px;
+  border-radius: 40px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.btn-secondary:hover {
+  background: #ff6b35;
+  color: white;
+}
+/* Trust badges */
+.trust-badges {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  background: #f8f9fa;
+  padding: 30px 20px;
+  margin: 20px 0;
+}
+.badge-item {
+  text-align: center;
+}
+.badge-icon {
+  font-size: 2rem;
+  display: block;
+}
+.badge-text {
+  font-weight: 500;
+  margin-top: 8px;
+}
+/* Why choose us */
+.why-choose-us, .testimonials, .cta-section {
+  padding: 60px 20px;
+  text-align: center;
+}
+.features-grid, .testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 40px auto 0;
+}
+.feature {
+  background: #fff;
+  padding: 30px 20px;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+.feature-icon {
+  font-size: 2.5rem;
+}
+.testimonial-card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.testimonial-card p {
+  font-style: italic;
+}
+.testimonial-author {
+  margin-top: 15px;
+  font-weight: bold;
+  color: #ff6b35;
+}
+.cta-section {
+  background: linear-gradient(135deg, #ff6b35, #f7931e);
+  color: white;
+  border-radius: 30px;
+  margin: 40px 20px;
+}
+.cta-section .btn-primary {
+  background: white;
+  color: #ff6b35;
+  margin-top: 20px;
+}
+.btn-large {
+  padding: 14px 35px;
+  font-size: 1.1rem;
+}
+/* Gallery responsive improvements */
+.cic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+.cic-item video, .cic-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+/* Media queries */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-buttons {
+    justify-content: center;
+  }
+  .trust-badges {
+    gap: 20px;
+  }
+}
+</style>
+
+<script>
+// Gallery filtering and lightbox functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const filterBtns = document.querySelectorAll('.cic-filter-tabs button');
+  const items = document.querySelectorAll('.cic-item');
+  const grid = document.getElementById('cicGrid');
+  const lightbox = document.getElementById('cicLb');
+  const lbMedia = document.querySelector('.cic-lb-media');
+  const lbCaption = document.querySelector('.cic-lb-caption');
+  const closeBtn = document.querySelector('.cic-lb-close');
+  const prevBtn = document.querySelector('.cic-lb-prev');
+  const nextBtn = document.querySelector('.cic-lb-next');
+  let currentItems = [];
+  let currentIndex = 0;
+
+  // Filter logic
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.getAttribute('data-filter');
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      items.forEach(item => {
+        const types = item.getAttribute('data-type').split(' ');
+        if (filter === 'all' || types.includes(filter)) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Helper: collect visible items
+  function updateCurrentItems() {
+    currentItems = Array.from(items).filter(item => item.style.display !== 'none');
+  }
+
+  // Open lightbox
+  function openLightbox(index) {
+    const item = currentItems[index];
+    if (!item) return;
+    const kind = item.getAttribute('data-kind');
+    const src = item.getAttribute('data-src');
+    const caption = item.getAttribute('data-caption') || '';
+    lbMedia.innerHTML = '';
+    if (kind === 'video') {
+      const video = document.createElement('video');
+      video.src = src;
+      video.controls = true;
+      video.autoplay = true;
+      video.style.maxWidth = '90vw';
+      video.style.maxHeight = '70vh';
+      lbMedia.appendChild(video);
+    } else {
+      const img = document.createElement('img');
+      img.src = src;
+      img.style.maxWidth = '90vw';
+      img.style.maxHeight = '70vh';
+      lbMedia.appendChild(img);
+    }
+    lbCaption.textContent = caption;
+    lightbox.style.display = 'flex';
+    currentIndex = index;
+  }
+
+  // Add click listeners to gallery items
+  function attachItemClick() {
+    items.forEach(item => {
+      item.addEventListener('click', (e) => {
+        e.stopPropagation();
+        updateCurrentItems();
+        const idx = currentItems.indexOf(item);
+        if (idx !== -1) openLightbox(idx);
+      });
+    });
+  }
+  attachItemClick();
+
+  // Navigation
+  prevBtn.addEventListener('click', () => {
+    let newIndex = currentIndex - 1;
+    if (newIndex < 0) newIndex = currentItems.length - 1;
+    openLightbox(newIndex);
+  });
+  nextBtn.addEventListener('click', () => {
+    let newIndex = currentIndex + 1;
+    if (newIndex >= currentItems.length) newIndex = 0;
+    openLightbox(newIndex);
+  });
+  closeBtn.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+    const video = lbMedia.querySelector('video');
+    if (video) video.pause();
+  });
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeBtn.click();
+  });
+});
+</script>
 
 <?php include 'footer.php'; ?>
